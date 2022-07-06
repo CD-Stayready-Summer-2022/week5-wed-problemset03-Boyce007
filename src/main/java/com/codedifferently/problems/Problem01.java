@@ -8,6 +8,14 @@ public class Problem01 {
      * @return
      */
     public Integer countDuplicateLetters(String input, String letter){
-        return null;
+        Integer count = 0;
+        for( int i =0;i<input.length();i++) {
+            Character charAt = input.charAt(i);
+            if (charAt.toString().equalsIgnoreCase(letter) ) {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
