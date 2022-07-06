@@ -22,19 +22,16 @@ public class Problem03 {
      * @param possibleFamilyMembers
      * @return
      */
-    public Integer[] numberFamily(Integer number, Integer[] possibleFamilyMembers){
+    public Integer[] numberFamily(Integer number, Integer[] possibleFamilyMembers) {
         List<Integer> numbers = new ArrayList<>();
-
-        Arrays.sort(possibleFamilyMembers);
-        for (int i =0;i< possibleFamilyMembers.length-1;i++) {
-            Integer currentIndex = numbers.indexOf(number);
-            Integer nextIndex= i+1;
-            if (possibleFamilyMembers[currentIndex] != possibleFamilyMembers[nextIndex]-1) {
-                continue;
+        numbers.add(number);
+        for (int i=0; i < possibleFamilyMembers.length; i++) {
+            if (numbers.get(i) == possibleFamilyMembers[i] || Math.abs(numbers.get(i) - possibleFamilyMembers[i]) == 1) {
+                numbers.add(possibleFamilyMembers[i]);
             }
-            numbers.add(possibleFamilyMembers[currentIndex]);
         }
-        System.out.println(numbers);
+
         return numbers.toArray(new Integer[numbers.size()]);
+
     }
 }
